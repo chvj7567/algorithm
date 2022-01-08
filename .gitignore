@@ -1,0 +1,9 @@
+*.sln 
+*.user
+*.vcxproj
+*.filters
+*.json
+*.suo
+*.db
+*.ipch
+**/x64
