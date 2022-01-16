@@ -64,7 +64,7 @@ int main() {
 	// c와 c++ 동기화 비활성화
 	// cin과 cout 속도 향상
 	std::ios_base::sync_with_stdio(false);
-	cin.tie(0);
+	cin.tie(0); cout.tie(0);
 
 	// 정점 갯수, 간선 갯수, 탐색 시작 번호
 	int n, m, v;
