@@ -19,9 +19,6 @@ int find(int n, int k) {
 		return 0;
 	}
 
-	// 동생을 잡는데 걸리는 시간의 모든 경우
-	std::vector<int> v;
-
 	// 큐에 현재 위치 저장 후 체크
 	std::queue<int> q;
 	minTime[n] = 1;
@@ -34,7 +31,7 @@ int find(int n, int k) {
 
 		// 동생을 잡았으면 반복문 종료
 		if (cur_n == k) {
-			break;
+			return minTime[cur_n] - 1;
 		}
 
 		// 움직일 수 있는 3가지 경우
@@ -54,19 +51,9 @@ int find(int n, int k) {
 				// 다음 위치에 경과 시간 1 추가
 				minTime[next_n] = minTime[cur_n] + 1;
 				q.push(next_n);
-				// 동생을 잡았을 경우의 시간 저장
-				if (next_n == k) {
-					v.push_back(minTime[next_n]);
-				}
 			}
 		}
 	}
-
-	// 동생을 잡기까지의 여러 시간들 오름차순 정렬
-	std::sort(v.begin(), v.end());
-
-	// 최소 시간 - 1(처음 1은 그 위치에 있었다는 걸 표기하기 위해서므로)
-	return v[0] - 1;
 }
 int main() {
 	// c와 c++ 동기화 비활성화
